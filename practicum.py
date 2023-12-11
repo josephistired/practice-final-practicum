@@ -27,12 +27,18 @@ class Book:
     return str(self.getTitle()) + ", " + "a book by " + str(self.getAuthor()) + ", " + "published in " + str(self.getPublicationYear()) + "."
   
   def __lt__(self, other):
+    if self.getAuthor() == other.getAuthor():
+      return self.getTitle() < other.getTitle()
     return self.getAuthor() < other.getAuthor()
   
   def __gt__(self, other):
+    if self.getAuthor() == other.getAuthor():
+      return self.getTitle() > other.getTitle()
     return self.getAuthor() > other.getAuthor()
   
   def __eq__(self, other):
+    if self.getAuthor() == other.getTitle():
+      return self.getTitle() == other.getAuthor()
     return self.getAuthor() == other.getAuthor()
     
 class Library:
@@ -49,38 +55,28 @@ class Library:
     return self.__books
   
   def is_empty(self):
-    if len(self.getBooks()) == 0:
-      return True
-    else:
-      return False
-    
+    return len(self.getBooks()) == 0
+      
   def reload(self, books):  
     for book in books:
       self.__books.append(book)
   
   def check_out(self, title, author):
-    for book in self.getBooks():
+    for i in range(len(self.__books)):
+      book = self.__books[i]
       if book.getTitle() == title and book.getAuthor() == author:
-        book = self.__books.remove(book)
-        return book
-      else:
-        return None
+        return self.__books.pop(i)
+      
+    return None
         
   def return_book(self, book):
     self.__books.append(book)
 
 def organize_library(library:Library) -> None:
    books = Library.getBooks(library)
-   new_order = []
-   
-   for book in books:
-     new_order.append(book)
-     
-   new_order.sort()
-   
-   Library.reload(library, new_order)
-   
 
+   books.sort()
+   
 def main():
     """
     Use this function to manually test your code (if needed)

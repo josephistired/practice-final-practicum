@@ -106,41 +106,41 @@ def test_reload_copies():
   # analyze
   assert not library.is_empty()
 
-# def test_check_out_1():
-#   # setup
-#   name = "Wallace Library"
-#   title = "1984"
-#   author = "George Orwell"
-#   year = 1949
-#   expected_book = Book(title, author, year)
-#   books = [expected_book]
+def test_check_out_1():
+  # setup
+  name = "Wallace Library"
+  title = "1984"
+  author = "George Orwell"
+  year = 1949
+  expected_book = Book(title, author, year)
+  books = [expected_book]
 
-#   # invoke
-#   library = Library(name)
-#   library.reload(books)
-#   actual_book = library.check_out(title, author)
+  # invoke
+  library = Library(name)
+  library.reload(books)
+  actual_book = library.check_out(title, author)
 
-#   # analyze
-#   assert library.is_empty()
-#   assert expected_book == actual_book
+  # analyze
+  assert library.is_empty()
+  assert expected_book == actual_book
 
-# def test_check_out_3():
-#   # setup
-#   name = "Wallace Library"
-#   title = "1984"
-#   author = "George Orwell"
-#   year = 1949
-#   expected_book = Book(title, author, year)
-#   books = [Book("Fahrenheit 451", "Ray Bradbury", 1953), Book("Iliad", "Homer", 1598), expected_book]
+def test_check_out_3():
+  # setup
+  name = "Wallace Library"
+  title = "1984"
+  author = "George Orwell"
+  year = 1949
+  expected_book = Book(title, author, year)
+  books = [Book("Fahrenheit 451", "Ray Bradbury", 1953), Book("Iliad", "Homer", 1598), expected_book]
 
-#   # invoke
-#   library = Library(name)
-#   library.reload(books)
-#   actual_book = library.check_out(title, author)
+  # invoke
+  library = Library(name)
+  library.reload(books)
+  actual_book = library.check_out(title, author)
 
-#   # analyze
-#   assert len(library.getBooks()) == 2
-#   assert expected_book == actual_book
+  # analyze
+  assert len(library.getBooks()) == 2
+  assert expected_book == actual_book
 
 def test_check_out_none():
   # setup
@@ -193,26 +193,26 @@ def test_return_book():
   assert library.getBooks()[0] == book
 
 # # PART 4 TESTS
-# def test_organize_library():
-#   # setup
-#   book1 = Book("Adventures of Huckleberry Finn", "Mark Twain", 1884)
-#   book2 = Book("Iliad", "Homer", 1598)
-#   book3 = Book("Fahrenheit 451", "Ray Bradbury", 1953)
-#   book4 = Book("Dracula", "Bram Stoker", 1897)
-#   book5 = Book("Animal Farm", "George Orwell", 1945)
-#   books = [book1, book2, book3, book4, book5]
-#   library = Library("Wallace Library")
-#   library.reload(books)
+def test_organize_library():
+  # setup
+  book1 = Book("Adventures of Huckleberry Finn", "Mark Twain", 1884)
+  book2 = Book("Iliad", "Homer", 1598)
+  book3 = Book("Fahrenheit 451", "Ray Bradbury", 1953)
+  book4 = Book("Dracula", "Bram Stoker", 1897)
+  book5 = Book("Animal Farm", "George Orwell", 1945)
+  books = [book1, book2, book3, book4, book5]
+  library = Library("Wallace Library")
+  library.reload(books)
 
-#   # invoke
-#   organize_library(library)
+  # invoke
+  organize_library(library)
   
-#   # analyze
-#   assert book4 == library.getBooks()[0]
-#   assert book5 == library.getBooks()[1]
-#   assert book2 == library.getBooks()[2]
-#   assert book1 == library.getBooks()[3]
-#   assert book3 == library.getBooks()[4]
+  # analyze
+  assert book4 == library.getBooks()[0]
+  assert book5 == library.getBooks()[1]
+  assert book2 == library.getBooks()[2]
+  assert book1 == library.getBooks()[3]
+  assert book3 == library.getBooks()[4]
 
 def test_organize_library_duplicates():
   # setup
